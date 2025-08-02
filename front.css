@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(1deg); }
+            66% { transform: translateY(10px) rotate(-1deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+            gap: 4rem;
+        }
+
+        .WELCOME {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .WELCOME h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 100;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            letter-spacing: 0.1em;
+            position: relative;
+            font-family: "Bungee";
+            animation: GLOWING 5s ease alternate infinite;
+        }
+
+        @keyframes GLOWING {
+            0% {
+                text-shadow: 0 0 5px white;
+            }
+            50% {
+                text-shadow: 0 0 15px white;
+            }
+            100% {
+                text-shadow: 0 0 30px white;
+            }
+        }
+
+        .WELCOME h1::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: #333333;
+            border-radius: 1px;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(88, 166, 255, 0.5); }
+            to { box-shadow: 0 0 40px rgba(88, 166, 255, 0.8); }
+        }
+
+        .WELCOME p {
+            font-size: 0.9rem;
+            color: #666666;
+            max-width: 500px;
+            line-height: 1.5;
+            margin: 0 auto;
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        .github-writer {
+            background: #111111;
+            margin: 0 auto;
+            padding: 20px 25px;
+            border-radius: 8px;
+            border: 1px solid #222222;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            font-family: inherit;
+            color: #ffffff;
+            font-size: 0.9em;
+            overflow: hidden;
+            max-width: 500px;
+            min-width: 350px;
+            position: relative;
+            animation: slideInUp 1s ease-out 0.5s both;
+        }
+
+        .github-writer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #58a6ff, transparent);
+            opacity: 0.8;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #222222;
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 6px;
+            margin-right: 12px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .dot:hover {
+            transform: scale(1.2);
+        }
+
+        .dot.red { 
+            background: linear-gradient(135deg, #ff5f56, #ff3b30);
+            box-shadow: 0 0 10px rgba(255, 95, 86, 0.4);
+        }
+        .dot.yellow { 
+            background: linear-gradient(135deg, #ffbd2e, #ff9500);
+            box-shadow: 0 0 10px rgba(255, 189, 46, 0.4);
+        }
+        .dot.green { 
+            background: linear-gradient(135deg, #27ca3f, #30d158);
+            box-shadow: 0 0 10px rgba(39, 202, 63, 0.4);
+        }
+
+        .terminal-title {
+            color: #8b949e;
+            font-size: 0.95em;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .command-line {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 1.1em;
+        }
+
+        .prompt {
+            color: #7c3aed;
+            margin-right: 12px;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
+        }
+
+        .cmd-git, .cmd-clone, .cmd-push, .cmd-pull { 
+            margin-right: 12px;
+        }
+
+        .cmd-git { 
+            color: #58a6ff; 
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(88, 166, 255, 0.4);
+        }
+
+        .cmd-clone { 
+            color: #3fb950; 
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(63, 185, 80, 0.4);
+        }
+
+        .cmd-push {
+            color: #f85149;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(248, 81, 73, 0.4);
+        }
+
+        .cmd-pull {
+            color: #d2a8ff;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(210, 168, 255, 0.4);
+        }
+
+        .typewriter { 
+            white-space: nowrap; 
+            overflow: visible; 
+            display: inline;
+            min-height: 1.4em;
+        }
+
+        .typing-letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(15px) scale(0.7);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .typing-letter.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .typing-letter.backspacing {
+            opacity: 0;
+            transform: translateY(-15px) scale(0.7);
+            transition: all 0.25s ease-in;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.4em;
+            background: linear-gradient(180deg, #58a6ff, #3fb950);
+            margin-left: 3px;
+            animation: blink 1.2s ease-in-out infinite;
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.6);
+            border-radius: 1px;
+        }
+
+        @keyframes blink {
+            0%, 45% { opacity: 1; transform: scaleY(1); }
+            50%, 95% { opacity: 0; transform: scaleY(0.8); }
+            100% { opacity: 1; transform: scaleY(1); }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(88, 166, 255, 0.6);
+            border-radius: 50%;
+            animation: floatParticle 15s linear infinite;
+        }
+
+        .particle:nth-child(2) {
+            background: rgba(63, 185, 80, 0.6);
+            animation-delay: -5s;
+            animation-duration: 20s;
+        }
+
+        .particle:nth-child(3) {
+            background: rgba(210, 168, 255, 0.6);
+            animation-delay: -10s;
+            animation-duration: 18s;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) translateX(0px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+                gap: 2rem;
+            }
+            
+            .github-writer {
+                max-width: 95%;
+                min-width: 300px;
+                padding: 20px 25px;
+                font-size: 1em;
+            }
+            
+            .WELCOME h1 {
+                font-size: clamp(3rem, 12vw, 5rem);
+            }
+            
+            .command-line {
+                font-size: 0.95em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .terminal-header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .terminal-dots {
+                margin-right: 0;
+            }
+        }
+
+
+        /* Footer styles */
+        .footer {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 10;
+        }
+
+        .copyright-text {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #ffffff;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .copyright-text:hover {
+            color: #ffffff;
+            text-shadow: 0 0 5px white;
+        }
+
+        .text-content {
+            position: relative;
+            display: inline-block;
+            height: 1.2em;
+        }
+
+        .text-primary, .text-secondary {
+            display: inline-block;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+
+        .text-primary {
+            opacity: 1;
+            filter: blur(0px);
+            transform: translateX(-50%) translateY(0px);
+        }
+
+        .text-secondary {
+            opacity: 0;
+            filter: blur(4px);
+            transform: translateX(-50%) translateY(10px);
+        }
+
+        .copyright-text:hover .text-primary {
+            opacity: 0;
+            filter: blur(4px);
+            transform: translateX(-50%) translateY(-10px);
+        }
+
+        .copyright-text:hover .text-secondary {
+            opacity: 1;
+            filter: blur(0px);
+            transform: translateX(-50%) translateY(0px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+                gap: 2rem;
+            }
+            
+            .github-writer {
+                max-width: 95%;
+                min-width: 300px;
+                padding: 20px 25px;
+                font-size: 1em;
+            }
+            
+            .WELCOME h1 {
+                font-size: clamp(3rem, 12vw, 5rem);
+            }
+            
+            .command-line {
+                font-size: 0.95em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .terminal-header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .terminal-dots {
+                margin-right: 0;
+            }
+        }
