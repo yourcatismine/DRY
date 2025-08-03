@@ -3,11 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/front.css">
-    <script type="module" src="/front.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../styles/dryfront.css">
+    <script type="module" src="../javascripts/front.js"></script>
+    <script type="module" src="../javascripts/LoadingBar.js"></script>
     <title>DRY</title>
 </head>
 <body>
+
+    <div class="loading-bar-container">
+        <div class="loading-bar" id="loadingBar"></div>
+    </div>
+
+
+    <div class="login-button-container">
+        <a href="../../backend/ADlogin/login.php" class="btn login-btn">
+            <i class="bi bi-person-circle me-2"></i>
+            Login
+        </a>
+    </div>
+
+
     <div class="floating-particles">
         <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
         <div class="particle" style="left: 20%; animation-delay: -2s;"></div>
@@ -46,8 +64,8 @@
         <div class="footer">
         <div class="copyright-text">
             <div class="text-content">
-                <span class="text-primary">© 2025 DRY</span>
-                <span class="text-secondary">Created by Diego Burgos</span>
+                <span class="text-dry">© 2025 DRY</span>
+                <span class="text-creator">Created by Diego Burgos</span>
             </div>
         </div>
     </div>

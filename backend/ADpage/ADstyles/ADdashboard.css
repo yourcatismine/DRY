@@ -1,0 +1,113 @@
+/* adminpage.css */
+
+/* Sidebar */
+#sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  height: 100vh;
+  transition: width 0.3s ease;
+}
+#sidebar .nav-link {
+  color: #333;
+  font-weight: 500;
+  padding: 12px 20px;
+}
+#sidebar .nav-link.active,
+#sidebar .nav-link:hover {
+  background-color: #f0f4ff;
+  color: #0033cc;
+}
+#sidebar .nav-link i {
+  font-size: 1.2rem;
+  margin-right: 12px;
+}
+
+/* Collapsed mobile state */
+#sidebar.d-none { display: none !important; }
+
+/* Top navbar */
+header.navbar {
+  background-color: #f8f9fa;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+header.navbar .navbar-text {
+  font-size: 1rem;
+  color: #333;
+}
+header.navbar .btn-outline-secondary {
+  color: #555;
+}
+
+/* Dashboard stat cards */
+.card.stat-card {
+  background-color: #f0f4ff;
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.card.stat-card .card-body {
+  padding: 1.5rem;
+}
+.card.stat-card h5 {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  color: #0033cc;
+}
+.card.stat-card p {
+  margin: 0;
+  color: #555;
+}
+
+/* Table card */
+.card.table-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 0.75rem;
+}
+.card.table-card .card-header {
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 1.25rem;
+}
+.card.table-card .card-header h4 {
+  margin: 0;
+  color: #333;
+}
+.card.table-card .card-header .btn-primary {
+  padding: 0.375rem 0.75rem;
+}
+.table-responsive table {
+  margin-bottom: 0;
+}
+.table-responsive th {
+  font-weight: 600;
+  color: #555;
+}
+.table-responsive td {
+  color: #444;
+}
+.table-responsive .badge {
+  font-size: 0.85rem;
+}
+
+/* Utility tweaks */
+.sidebar-header h4 {
+  margin: 0;
+  padding: 1rem 1.25rem;
+  font-weight: bold;
+  color: #0033cc;
+}
+.navbar, .sidebar, main {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* Responsive collapse button */
+#toggle-btn {
+  font-size: 1.5rem;
+  color: #333;
+  background: none;
+  border: none;
+}
+#toggle-btn:hover {
+  color: #0033cc;
+}
