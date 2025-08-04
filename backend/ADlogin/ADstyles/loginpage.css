@@ -55,6 +55,7 @@ body{
     cursor: pointer;
     border: 1px solid #808080;
     background: white;
+    color: #333;
     transition: all 0.3s ease-in-out;
 }
 
@@ -64,14 +65,20 @@ body{
     border-radius: 50%;
 }
 
-
 .container button.hidden{
     background-color: transparent;
     border-color: #fff;
+    color: #fff;
 }
 
 button:hover{
     background-color: #d3d3d3a6;
+    color: #333;
+}
+
+.container button.hidden:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
 }
 
 .container form{ 
@@ -111,11 +118,36 @@ button:hover{
 .sign-in h1 {
     color: rgb(83, 83, 83);
     font-size: 30px;
-    text-transform: uppercase
+    text-transform: uppercase;
+}
+
+.sign-up h1 {
+    color: rgb(83, 83, 83);
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.register-link {
+    margin-top: 15px !important;
+    margin-bottom: 0 !important;
+    font-size: 14px !important;
+    color: #333 !important;
+}
+
+.register-link a {
+    color: #007bff;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.register-link a:hover {
+    color: #0056b3;
 }
 
 .container.active .sign-in{
     transform: translateX(100%);
+    opacity: 0;
+    z-index: 1;
 }
 
 .sign-up{
@@ -123,6 +155,7 @@ button:hover{
     width: 50%;
     opacity: 0;
     z-index: 1;
+    transform: translateX(0);
 }
 
 .container.active .sign-up{
@@ -170,7 +203,6 @@ button:hover{
 
 .container.active .toggle-container{
     transform: translateX(-100%);
-    border-radius: 0 150px 100px 0;
 }
 
 .toggle{
