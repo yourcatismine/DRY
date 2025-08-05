@@ -8,6 +8,7 @@
 }
 
 body{
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,13 +117,13 @@ button:hover{
 }
 
 .sign-in h1 {
-    color: rgb(83, 83, 83);
+    color: rgb(255, 255, 255);
     font-size: 30px;
     text-transform: uppercase;
 }
 
 .sign-up h1 {
-    color: rgb(83, 83, 83);
+    color: rgb(255, 255, 255);
     font-size: 30px;
     text-transform: uppercase;
 }
@@ -131,7 +132,7 @@ button:hover{
     margin-top: 15px !important;
     margin-bottom: 0 !important;
     font-size: 14px !important;
-    color: #333 !important;
+    color: #ffffff !important;
 }
 
 .register-link a {
@@ -259,7 +260,7 @@ button:hover{
     width: 100%;
     text-align: center;
     font-size: 12px;
-    color: #333;
+    color: #ffffff;
     text-transform: uppercase;
     font-family: Oswald, sans-serif;
 }
@@ -267,7 +268,7 @@ button:hover{
 .spacecreator {
     margin-top: 10px;
     font-size: 10px;
-    color: #333;
+    color: #fffdfd;
 }
 
 @media (max-width: 800px) {
@@ -414,4 +415,36 @@ button:hover{
     border-radius: 5px;
     padding: 10px;
     background: rgba(255, 0, 0, 0.301);
+    color: white;
+}
+
+.button-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+}
+
+.glass-button {
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    color: rgb(0, 0, 0);
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 1.0rem;
+    font-weight: 500;
+    border: 1px solid rgb(0, 0, 0);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    width: max-content;
+}
+
+.glass-button:hover {
+    background-color: #d3d3d3a6;
+    color: #333;
+    transform: translateY(-2px);
 }

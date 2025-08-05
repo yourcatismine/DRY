@@ -7,7 +7,6 @@ $error_message = "";
 $success_message = "";
 $redirect_success = false;
 
-// Handle Login
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
@@ -16,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
         $error_message = "Username and password are required.";
     } else {
         try {
-            $stmt = $conn->prepare("SELECT id, username, password, role FROM users WHERE username = ?");
+            $stmt = $conn->prepare("SELECT username, email, password, role FROM login WHERE username = ?");
             $stmt->bind_param("s", $username);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -24,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
             if ($result->num_rows === 1) {
                 $user = $result->fetch_assoc();
                 
-                if (password_verify($password, $user['password'])) {
+                if ($user['password'] === $password) {
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['username'] = $username;
                     $_SESSION['last_activity'] = time();
@@ -120,11 +119,32 @@ if (isset($_SESSION['temp_success'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="../ADlogin/ADstyles/loginpage.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../ADlogin/ADstyles/registation.css">
     <script type="module" src="../ADlogin/ADjavascripts/loginpage.js" defer></script>
     <title>Login</title>
 </head>
 <body>
+
+    <div class="button-container">
+        <button class="glass-button" type="button" onclick="window.location.href='../../frontend/pages/frontpage.php'">
+            <i class="bi bi-house"></i> Home Page
+        </button>
+    </div>
+
+    <div class="floating-particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: -2s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: -4s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: -6s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: -8s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: -10s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: -12s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: -14s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: -16s;"></div>
+    </div>
+
     <div class="container" id="container">
         <?php if (!empty($success_message)): ?>
             <div class="message-success-top">
